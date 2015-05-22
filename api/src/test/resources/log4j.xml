@@ -6,7 +6,7 @@
 			<param name="ConversionPattern" value="[%p] %m%n"/>
 		</layout>
 	</appender>
-	<logger name="org.openmrs.module.kenyacore">
+	<logger name="org.openmrs.module.myanmarcore">
 		<level value="debug" />
 	</logger>
 	<root>

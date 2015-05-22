@@ -24,7 +24,7 @@
 
 	<!-- ==================== Forms ======================== -->
 
-	<bean id="test.config.form" class="org.openmrs.module.kenyacore.form.FormConfiguration">
+	<bean id="test.config.form" class="org.openmrs.module.myanmarcore.form.FormConfiguration">
 		<property name="commonVisitForms">
 			<set>
 				<ref bean="test.form.progressnote" />
@@ -38,13 +38,13 @@
 		</property>
 	</bean>
 
-	<bean id="test.form.registration" class="org.openmrs.module.kenyacore.form.FormDescriptor">
+	<bean id="test.form.registration" class="org.openmrs.module.myanmarcore.form.FormDescriptor">
 		<property name="targetUuid" value="80469953-D3EE-47CC-B178-A2B90C5CF64D" />
 		<!-- No set of allowed apps -->
 		<property name="order" value="100" />
 	</bean>
 
-	<bean id="test.form.hivconsultation" class="org.openmrs.module.kenyacore.form.FormDescriptor">
+	<bean id="test.form.hivconsultation" class="org.openmrs.module.myanmarcore.form.FormDescriptor">
 		<property name="targetUuid" value="6B33F0C3-4DBF-40F2-A32D-93E788592301" />
 		<property name="apps">
 			<set>
@@ -54,7 +54,7 @@
 		<property name="order" value="100" />
 	</bean>
 
-	<bean id="test.form.progressnote" class="org.openmrs.module.kenyacore.form.FormDescriptor">
+	<bean id="test.form.progressnote" class="org.openmrs.module.myanmarcore.form.FormDescriptor">
 		<property name="targetUuid" value="4F163D44-7A65-4492-8A9C-C91F478A5D02" />
 		<property name="apps">
 			<set>
@@ -64,7 +64,7 @@
 		<property name="order" value="100" />
 	</bean>
 
-	<bean id="test.form.labresults" class="org.openmrs.module.kenyacore.form.FormDescriptor">
+	<bean id="test.form.labresults" class="org.openmrs.module.myanmarcore.form.FormDescriptor">
 		<property name="targetUuid" value="51647632-D496-4AE8-9FDA-64BC62B9089E" />
 		<property name="apps">
 			<set>
@@ -76,7 +76,7 @@
 
 	<!-- ==================== Programs ======================== -->
 
-	<bean id="test.program.hiv" class="org.openmrs.module.kenyacore.program.ProgramDescriptor">
+	<bean id="test.program.hiv" class="org.openmrs.module.myanmarcore.program.ProgramDescriptor">
 		<property name="targetUuid" value="da4a0391-ba62-4fad-ad66-1e3722d16380" />
 		<property name="visitForms">
 			<set>
@@ -89,19 +89,19 @@
 	<!-- ==================== Identifiers ======================== -->
 
 	<!-- OpenMRS Identification Number -->
-	<bean id="test.identifier.openmrs" class="org.openmrs.module.kenyacore.identifier.IdentifierDescriptor">
+	<bean id="test.identifier.openmrs" class="org.openmrs.module.myanmarcore.identifier.IdentifierDescriptor">
 		<property name="targetUuid" value="1a339fe9-38bc-4ab3-b180-320988c0b968" />
 		<property name="order" value="1001" />
 	</bean>
 
 	<!-- Old Identification Number -->
-	<bean id="test.identifier.old" class="org.openmrs.module.kenyacore.identifier.IdentifierDescriptor">
+	<bean id="test.identifier.old" class="org.openmrs.module.myanmarcore.identifier.IdentifierDescriptor">
 		<property name="targetUuid" value="2f470aa8-1d73-43b7-81b5-01f0c0dfa53c" />
 	</bean>
 
 	<!-- ==================== Reports ======================== -->
 
-	<bean id="test.config.report" class="org.openmrs.module.kenyacore.report.ReportConfiguration">
+	<bean id="test.config.report" class="org.openmrs.module.myanmarcore.report.ReportConfiguration">
 		<property name="commonReports">
 			<set><ref bean="test.report.test1" /></set>
 		</property>
@@ -114,10 +114,10 @@
 		</property>
 	</bean>
 
-	<bean id="test.report.test1" class="org.openmrs.module.kenyacore.report.CalculationReportDescriptor">
+	<bean id="test.report.test1" class="org.openmrs.module.myanmarcore.report.CalculationReportDescriptor">
 		<property name="targetUuid" value="4FAE55A5-E144-471F-9142-7E776A4E19E0" />
 		<property name="name" value="Test Report #1" />
-		<property name="calculation" value="org.openmrs.module.kenyacore.test.TestCalculation" />
+		<property name="calculation" value="org.openmrs.module.myanmarcore.test.TestCalculation" />
 		<property name="apps">
 			<set>
 				<ref bean="test.app.app1" />
@@ -126,10 +126,10 @@
 		<property name="displayIdentifier" ref="test.identifier.openmrs" />
 	</bean>
 
-	<bean id="test.report.test2" class="org.openmrs.module.kenyacore.report.CalculationReportDescriptor">
+	<bean id="test.report.test2" class="org.openmrs.module.myanmarcore.report.CalculationReportDescriptor">
 		<property name="targetUuid" value="9003EBA1-D3E4-46D3-B01E-9412604295C8" />
 		<property name="name" value="Test Report #2" />
-		<property name="calculation" value="org.openmrs.module.kenyacore.test.TestCalculationWithParams" />
+		<property name="calculation" value="org.openmrs.module.myanmarcore.test.TestCalculationWithParams" />
 		<property name="apps">
 			<set>
 				<ref bean="test.app.app1" />
@@ -139,7 +139,7 @@
 
 	<!-- ==================== Lab ======================== -->
 
-	<bean id="test.config.lab" class="org.openmrs.module.kenyacore.lab.LabConfiguration">
+	<bean id="test.config.lab" class="org.openmrs.module.myanmarcore.lab.LabConfiguration">
 		<property name="commonCatalogs">
 			<set>
 				<ref bean="test.catalog.general" />
@@ -147,13 +147,13 @@
 		</property>
 	</bean>
 
-	<bean id="test.catalog.general" class="org.openmrs.module.kenyacore.lab.LabTestCatalog">
+	<bean id="test.catalog.general" class="org.openmrs.module.myanmarcore.lab.LabTestCatalog">
 		<property name="tests">
 			<map>
 				<entry key="category1">
 					<list>
-						<bean class="org.openmrs.module.kenyacore.lab.LabTestDefinition" p:concept="c607c80f-1ea9-4da3-bb88-6276ce8868dd" /><!-- WEIGHT (KG) -->
-						<bean class="org.openmrs.module.kenyacore.lab.LabTestDefinition" p:concept="a09ab2c5-878e-4905-b25d-5784167d0216" /><!-- CD4 COUNT -->
+						<bean class="org.openmrs.module.myanmarcore.lab.LabTestDefinition" p:concept="c607c80f-1ea9-4da3-bb88-6276ce8868dd" /><!-- WEIGHT (KG) -->
+						<bean class="org.openmrs.module.myanmarcore.lab.LabTestDefinition" p:concept="a09ab2c5-878e-4905-b25d-5784167d0216" /><!-- CD4 COUNT -->
 					</list>
 				</entry>
 				<entry key="category2">
@@ -163,10 +163,10 @@
 		</property>
 	</bean>
 
-	<bean id="test.descriptor1" class="org.openmrs.module.kenyacore.test.TestDescriptor">
+	<bean id="test.descriptor1" class="org.openmrs.module.myanmarcore.test.TestDescriptor">
 		<property name="order" value="3" />
 	</bean>
-	<bean id="test.descriptor2" class="org.openmrs.module.kenyacore.test.TestDescriptor">
+	<bean id="test.descriptor2" class="org.openmrs.module.myanmarcore.test.TestDescriptor">
 		<property name="order" value="2" />
 	</bean>
 

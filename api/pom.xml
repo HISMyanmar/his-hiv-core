@@ -3,14 +3,14 @@
 
 	<parent>
 		<groupId>org.openmrs.module</groupId>
-		<artifactId>kenyacore</artifactId>
-		<version>2.2</version>
+		<artifactId>myanmarcore</artifactId>
+		<version>1.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>kenyacore-api</artifactId>
+	<artifactId>myanmarcore-api</artifactId>
 	<packaging>jar</packaging>
-	<name>KenyaCore API</name>
-	<description>API project for KenyaCore</description>
+	<name>MyanmarCore API</name>
+	<description>API project for MyanmarCore</description>
 
 	<dependencies>
 
