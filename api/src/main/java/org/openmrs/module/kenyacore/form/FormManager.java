@@ -293,7 +293,7 @@ public class FormManager implements ContentManager {
 			if (app != null && descriptor.getApps() != null && !descriptor.getApps().contains(app)) {
 				continue;
 			}
-
+/*
 			// Filter by patient gender
 			if (patient.getGender() != null) {
 				if (patient.getGender().equals("F") && descriptor.getGender() == Gender.MALE)
@@ -301,7 +301,7 @@ public class FormManager implements ContentManager {
 				else if (patient.getGender().equals("M") && descriptor.getGender() == Gender.FEMALE)
 					continue;
 			}
-
+*/
 			filtered.add(descriptor);
 		}
 
