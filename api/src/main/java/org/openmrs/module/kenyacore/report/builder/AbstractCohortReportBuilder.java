@@ -15,18 +15,23 @@
 package org.openmrs.module.kenyacore.report.builder;
 
 import org.openmrs.PatientIdentifierType;
+import org.openmrs.PersonAttribute;
+import org.openmrs.PersonAttributeType;
+import org.openmrs.api.context.Context;
 import org.openmrs.module.kenyacore.report.CohortReportDescriptor;
 import org.openmrs.module.kenyacore.report.ReportDescriptor;
 import org.openmrs.module.reporting.cohort.definition.CohortDefinition;
 import org.openmrs.module.reporting.data.DataDefinition;
 import org.openmrs.module.reporting.data.converter.DataConverter;
 import org.openmrs.module.reporting.data.converter.ObjectFormatter;
+import org.openmrs.module.reporting.data.converter.PropertyConverter;
 import org.openmrs.module.reporting.data.patient.definition.ConvertedPatientDataDefinition;
 import org.openmrs.module.reporting.data.patient.definition.PatientIdDataDefinition;
 import org.openmrs.module.reporting.data.patient.definition.PatientIdentifierDataDefinition;
 import org.openmrs.module.reporting.data.person.definition.AgeDataDefinition;
 import org.openmrs.module.reporting.data.person.definition.ConvertedPersonDataDefinition;
 import org.openmrs.module.reporting.data.person.definition.GenderDataDefinition;
+import org.openmrs.module.reporting.data.person.definition.PersonAttributeDataDefinition;
 import org.openmrs.module.reporting.data.person.definition.PreferredNameDataDefinition;
 import org.openmrs.module.reporting.dataset.definition.DataSetDefinition;
 import org.openmrs.module.reporting.dataset.definition.PatientDataSetDefinition;
@@ -45,11 +50,13 @@ public abstract class AbstractCohortReportBuilder extends AbstractReportBuilder 
 	/**
 	 * @see AbstractReportBuilder#getParameters(org.openmrs.module.kenyacore.report.ReportDescriptor)
 	 */
+	
+
 	@Override
 	protected List<Parameter> getParameters(ReportDescriptor descriptor) {
 		return Arrays.asList();
 	}
-
+	
 	/**
 	 * @see AbstractReportBuilder#buildDataSets(org.openmrs.module.kenyacore.report.ReportDescriptor, org.openmrs.module.reporting.report.definition.ReportDefinition)
 	 */
@@ -88,15 +95,19 @@ public abstract class AbstractCohortReportBuilder extends AbstractReportBuilder 
 	 * Adds the standard patient list columns
 	 * @param dsd the data set definition
 	 */
-	protected void addStandardColumns(CohortReportDescriptor report, PatientDataSetDefinition dsd) {
+	protected void addStandardColumns(CohortReportDescriptor report, PatientDataSetDefinition dsd) { 
 		DataConverter nameFormatter = new ObjectFormatter("{familyName}, {givenName}");
 		DataDefinition nameDef = new ConvertedPersonDataDefinition("name", new PreferredNameDataDefinition(), nameFormatter);
-
+       
+		
+        
 		dsd.addColumn("id", new PatientIdDataDefinition(), "");
 		dsd.addColumn("Name", nameDef, "");
 		dsd.addColumn("Age", new AgeDataDefinition(), "");
 		dsd.addColumn("Sex", new GenderDataDefinition(), "");
-
+		 PersonAttributeType phoneNumber = Context.getPersonService().getPersonAttributeTypeByUuid("b2c38640-2603-4629-aebd-3b54f33f1e3a");
+		 dsd.addColumn("phone", new PersonAttributeDataDefinition("phone",phoneNumber), "", new PropertyConverter(PersonAttribute.class, "value"));
+    
 		if (report.getDisplayIdentifier() != null) {
 			PatientIdentifierType idType = report.getDisplayIdentifier().getTarget();
 
