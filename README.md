@@ -1,4 +1,4 @@
-KenyaCore OpenMRS Module
+Core Module
 ========================
 <a href="https://ci.kenyaemr.org/viewType.html?buildTypeId=kenyacore_mvn"><img src="https://ci.kenyaemr.org/app/rest/builds/buildType:kenyacore_mvn/statusIcon"/></a>
 
